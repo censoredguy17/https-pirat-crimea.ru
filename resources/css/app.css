@@ -1,0 +1,1664 @@
+/*import './common';*/
+@import "./common.css";
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+
+:root {
+    --pirate-dark: #1a150f;
+    --pirate-gold: #ffcf40;
+    --pirate-parchment: #f4e4bc;
+    --p-gold: #ffcf40;
+    --p-wood: #1a150f;
+    --p-paper: #f4e4bc;
+    --p-dark: #0b0d0f;
+    --p-blood: #8b0000;
+}
+
+/* ГЛАВНОЕ ИСПРАВЛЕНИЕ: Убираем горизонтальный скролл */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    margin-top: 36px;
+    padding: 0;
+    background-color: #0b0d0f;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* --- СТИЛИ НОВОГО ХЕДЕРА --- */
+.modern-p-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(10, 10, 10, 0.85); /* Полупрозрачный фон */
+    backdrop-filter: blur(12px); /* Эффект стекла */
+    border-bottom: 2px solid #ffcf40;
+    font-family: 'Philosopher', sans-serif;
+    padding: 5px 0;
+}
+
+.modern-p-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Логотип */
+.modern-p-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Pirata One', cursive;
+}
+
+.modern-p-logo i {
+    font-size: 2.5rem;
+    color: #ffcf40;
+    margin-right: 10px;
+}
+
+.modern-p-logo span {
+    font-size: 1.4rem;
+    line-height: 0.9;
+}
+
+.modern-p-logo small {
+    font-size: 0.9rem;
+    color: #ffcf40;
+    letter-spacing: 2px;
+}
+
+/* Основное меню */
+.modern-p-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.modern-p-item {
+    position: relative;
+}
+
+.modern-p-link {
+    display: block;
+    padding: 20px 15px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.modern-p-link i {
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+.modern-p-link:hover {
+    color: #ffcf40;
+}
+
+/* Выпадающие списки */
+.modern-p-sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 220px;
+    background: #1a1a1a;
+    border-top: 3px solid #ffcf40;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: 0.3s ease;
+}
+
+.modern-p-sub li a {
+    display: block;
+    padding: 10px 20px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.modern-p-sub li a:hover {
+    background: #252525;
+    color: #ffcf40;
+    padding-left: 25px;
+}
+
+/* Показ при наведении */
+.modern-p-dropdown:hover .modern-p-sub {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Кнопка */
+.modern-p-btn {
+    background: #ffcf40;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.1rem;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.modern-p-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 15px #ffcf40;
+}
+
+/* МОБИЛЬНОЕ МЕНЮ */
+.modern-p-check {
+    display: none;
+}
+
+.modern-p-hamburger {
+    display: none;
+    color: #ffcf40;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .modern-p-hamburger {
+        display: block;
+    }
+
+    .modern-p-menu {
+        position: fixed;
+        top: 75px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 75px);
+        background: #0a0a0a;
+        flex-direction: column;
+        transition: 0.5s;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+
+    .modern-p-check:checked ~ .modern-p-menu {
+        left: 0;
+    }
+
+    .modern-p-link {
+        padding: 15px 20px;
+        font-size: 1.1rem;
+    }
+
+    .modern-p-sub {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+        transform: none;
+        background: #111;
+        box-shadow: none;
+        display: none; /* Скрыто на мобилках до клика */
+    }
+
+    .modern-p-dropdown:hover .modern-p-sub {
+        display: block;
+    }
+}
+
+
+/*Slider*/
+
+/* --- СТИЛИ СЛАЙДЕРА --- */
+
+#pirateSlider {
+    border-bottom: 5px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden; /* Чтобы текст не вылетал при анимации */
+}
+
+/* Высота картинок на ПК */
+.slide-img {
+    height: 80vh; /* 80% от высоты экрана */
+    object-fit: cover; /* Чтобы картинка не сжималась */
+    filter: sepia(30%) contrast(110%); /* Эффект старого фото */
+}
+
+/* Стилизация Парчмента (фона текста) */
+.parchment-text {
+    background-color: var(--pirate-parchment);
+    background-image: url('https://www.transparenttextures.com/patterns/p6.png'); /* Текстура бумаги */
+    color: #332b1d;
+    padding: 25px 40px;
+    border: 3px solid var(--pirate-gold);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out 0.5s; /* Задержка появления текста */
+}
+
+/* Анимация текста при активации слайда */
+.carousel-item.active .parchment-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pirate-font {
+    font-family: 'Pirata One', cursive;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.parchment-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+/* Навигационные стрелки (Компас) */
+.pirate-arrow {
+    color: var(--pirate-gold) !important;
+    text-shadow: 0 0 15px rgba(255, 207, 64, 0.7);
+    transition: 0.3s;
+}
+
+.carousel-control-prev:hover .pirate-arrow,
+.carousel-control-next:hover .pirate-arrow {
+    transform: scale(1.1);
+    color: white !important;
+}
+
+/* Индикаторы (Монеты) */
+.coin-indicator {
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 50% !important;
+    background-color: #666 !important;
+    border: 2px solid #999 !important;
+    opacity: 0.7;
+    margin: 0 7px !important;
+    transition: 0.3s;
+}
+
+.coin-indicator.active {
+    background-color: var(--pirate-gold) !important;
+    border-color: #fff !important;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px var(--pirate-gold);
+}
+
+/* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+@media (max-width: 767px) {
+    .slide-img {
+        height: 50vh; /* Уменьшаем высоту на телефонах */
+    }
+
+    /* Убираем парчмент на мобильных, чтобы не перекрывал фото,
+       оставляем только текст внизу */
+    .carousel-caption {
+        background: rgba(0, 0, 0, 0.7);
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: 10px;
+    }
+
+    .carousel-caption .parchment-text {
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        transform: none !important;
+        opacity: 1 !important;
+        color: white;
+    }
+
+    .pirate-font {
+        font-size: 1.5rem;
+    }
+
+    .parchment-text p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/*Развлечения */
+
+/* --- СТИЛИ БЛОКА РАЗВЛЕЧЕНИЙ --- */
+
+.entertainment-section {
+    background: radial-gradient(circle, #1a1a1a 0%, #0b0d0f 100%);
+    position: relative;
+    border-top: 2px solid var(--pirate-gold);
+}
+
+.section-main-title {
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.divider-gold {
+    width: 150px;
+    height: 4px;
+    background: var(--pirate-gold);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--pirate-gold);
+}
+
+/* Карточка */
+.pirate-card {
+    border: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background-color: transparent;
+}
+
+.pirate-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img-container {
+    position: relative;
+    border: 5px solid #2b1d0e; /* Деревянная рамка */
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+
+.card-img-container img {
+    transition: transform 0.5s ease;
+}
+
+.pirate-card:hover .card-img-container img {
+    transform: scale(1.1);
+}
+
+/* Дата как восковая печать */
+.card-date-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #8b0000; /* Темно-красный сургуч */
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Philosopher', sans-serif;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.date-day {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+/* Тело карточки (Пергамент) */
+.pirate-bg-parchment {
+    background-color: var(--pirate-parchment);
+    background-image: url('https://www.transparenttextures.com/patterns/p6.png');
+    border: 5px solid #2b1d0e;
+    border-top: none;
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #4a3c28 !important; /* Более темный для чтения на бумаге */
+}
+
+/* Кнопки */
+.pirate-btn-sm {
+    background-color: #2b1d0e;
+    color: var(--pirate-gold);
+    border: 1px solid var(--pirate-gold);
+    font-family: 'Pirata One', cursive;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.pirate-btn-sm:hover {
+    background-color: var(--pirate-gold);
+    color: black;
+}
+
+/* Главная большая кнопка */
+.pirate-btn-lg {
+    background: linear-gradient(45deg, #b8860b, #ffd700);
+    color: #000;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border: 3px solid #2b1d0e;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    transition: 0.3s;
+}
+
+.pirate-btn-lg:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+    color: #000;
+}
+
+
+/* Услуги */
+
+/* --- СТИЛИ БЛОКА УСЛУГ --- */
+
+.services-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    border-top: 3px solid #4a3c28;
+    position: relative;
+    padding-bottom: 80px;
+}
+
+/* Иллюминатор (Рамка) */
+.porthole-frame {
+    width: 250px;
+    height: 250px;
+    background: #b8860b; /* Бронза */
+    border-radius: 50%;
+    padding: 15px;
+    position: relative;
+    border: 8px solid #2b1d0e;
+    box-shadow: 0 0 30px rgba(184, 134, 11, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+}
+
+/* Эффект заклепок вокруг иллюминатора */
+.porthole-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px dotted #2b1d0e;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.porthole-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #000;
+}
+
+.porthole-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(40%) sepia(20%);
+    transition: 0.5s ease;
+}
+
+/* Ховер эффект для иллюминатора */
+.service-item:hover .porthole-frame {
+    transform: rotate(10deg) scale(1.05);
+    box-shadow: 0 0 50px rgba(255, 207, 64, 0.6);
+}
+
+.service-item:hover .porthole-content img {
+    filter: grayscale(0%) sepia(0%);
+    transform: scale(1.2);
+}
+
+/* Кнопка в стиле Услуг */
+.btn-outline-gold {
+    color: var(--pirate-gold);
+    border: 2px solid var(--pirate-gold);
+    border-radius: 0;
+    font-family: 'Pirata One', cursive;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--pirate-gold);
+    color: #000;
+    box-shadow: 0 0 15px var(--pirate-gold);
+}
+
+/* Мобильная адаптация для кругов */
+@media (max-width: 576px) {
+    .porthole-frame {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+
+/*Map*/
+
+/* --- СТИЛИ КАРТЫ --- */
+
+.map-section {
+    background-color: #0b0d0f;
+    border-top: 2px solid var(--pirate-gold);
+}
+
+.map-frame {
+    border: 10px solid #2b1d0e; /* Толстая деревянная рама */
+    border-radius: 5px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Фильтр для карты, чтобы она выглядела чуть более "винтажно" */
+#pirate-map {
+    filter: sepia(20%) contrast(90%);
+    transition: 0.5s;
+}
+
+#pirate-map:hover {
+    filter: sepia(0%) contrast(100%); /* При наведении карта становится цветной */
+}
+
+/* Адаптивность высоты карты на мобильных */
+@media (max-width: 768px) {
+    #pirate-map {
+        height: 300px !important;
+    }
+}
+
+
+/*Footer*/
+
+/* Кнопка в бронзовом стиле */
+.pirate-btn-bronze {
+    background: linear-gradient(45deg, #4b3621, #8b5a2b);
+    color: #ffd700;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.3rem;
+    border: 2px solid #332414;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.pirate-btn-bronze:hover {
+    color: white;
+    filter: brightness(1.2);
+    transform: scale(1.02);
+}
+
+/* ФУТЕР */
+.pirate-footer {
+    background: #000 url('https://www.transparenttextures.com/patterns/dark-wood.png');
+    border-top: 4px solid var(--pirate-gold);
+    color: #bfa67a;
+}
+
+.footer-links a {
+    color: #bfa67a;
+    text-decoration: none;
+    transition: 0.3s;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-links a:hover {
+    color: var(--pirate-gold);
+    padding-left: 5px;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: var(--pirate-gold);
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: white;
+    transform: rotate(20deg);
+}
+
+/* Стили для подпунктов в футере */
+.footer-sub-links li {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.footer-sub-links li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.footer-sub-links li a:before {
+    content: "—"; /* Пиратская черточка перед ссылкой */
+    margin-right: 8px;
+    color: #d4af37;
+}
+
+.footer-sub-links li a:hover {
+    color: #d4af37;
+    padding-left: 5px;
+}
+
+/* Убираем лишние отступы у основных ссылок для ровности */
+.footer-p-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #e0e0e0;
+}
+
+.link-footer {
+    color: #bfa67a !important;
+}
+
+/* СТИЛИ ПАУКА */
+/* --- СТИЛИ ОГРОМНОГО ПАУКА --- */
+/* --- СТИЛИ ЧЕРНОГО ПАУКА С БЕЛОЙ ОБВОДКОЙ --- */
+
+.pirate-spider-giant {
+    position: fixed;
+    top: -300px; /* Прячем его выше, так как он стал больше */
+    right: 70px; /* Положение от правого края */
+    z-index: 9999; /* Самый высокий z-index, поверх всего */
+    color: #000; /* ЧЕРНЫЙ ЦВЕТ, КАК НОЧЬ В ТРЮМЕ! */
+    font-size: 6rem !important; /* ОГРОМНЫЙ РАЗМЕР */
+    pointer-events: none; /* Чтобы не мешал кликать */
+    transition: top 1.8s cubic-bezier(0.25, 1, 0.5, 1.2) !important; /* Плавный и заметный спуск */
+
+    /* БЕЛАЯ ОБВОДКА (КРЕПКАЯ, КАК ПАРУС) */
+    text-shadow: -2px -2px 0 #fff,
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+    2px 2px 0 #fff,
+    0 0 10px rgba(255, 255, 255, 0.7); /* Легкое свечение */
+}
+
+/* Паутина */
+.spider-web {
+    position: absolute;
+    top: -700px; /* Длиннее, так как он спускается ниже */
+    left: 50%;
+    width: 1px; /* Чуть толще паутина */
+    height: 700px;
+    background: rgba(255, 255, 255, 0.7); /* Более заметная паутина */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4); /* Подсветим паутину */
+}
+
+/* Класс запуска, который опускает паука */
+.spider-show {
+    top: 180px !important; /* Опускаем его так, чтобы он не перекрывал меню, но был виден */
+}
+
+/* Контейнер футера должен иметь overflow: hidden, чтобы мышь не выбегала за край сайта */
+
+
+/*Мышка*/
+.pirate-mouse-global {
+    position: fixed;
+    bottom: 20px; /* Высота от нижнего края экрана */
+    left: -100px; /* Прячем за левым краем */
+    font-size: 3rem; /* Сделал крупнее, чтобы точно заметить */
+    z-index: 9999; /* Поверх всего на свете */
+    pointer-events: none;
+    display: none; /* Появится через JS */
+}
+
+/* Анимация пробежки через весь экран */
+@keyframes scurry-global {
+    0% {
+        left: -100px;
+        transform: scaleX(-1);
+    }
+    100% {
+        left: 110vw;
+        transform: scaleX(-1);
+    }
+}
+
+.mouse-active {
+    display: block !important;
+    animation: scurry-global 3s linear forwards;
+}
+
+
+/*Текст*/
+
+/* --- СТИЛИ ПИРАТСКОГО МАНИФЕСТА --- */
+.pirate-manifest-section {
+    padding: 80px 0;
+    background: #0b0d0f; /* Глубокий темный фон для контраста */
+    position: relative;
+}
+
+.pirate-manifest-paper {
+    background: #f4e4bc url('https://www.transparenttextures.com/patterns/p6.png');
+    padding: 60px 40px;
+    border: 2px solid #d4a76a;
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+    color: #2b1d0e;
+    /* Эффект старой бумаги */
+    box-shadow: inset 0 0 50px rgba(139, 69, 19, 0.2), 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Декоративные разделители */
+.manifest-divider {
+    color: #8b4513;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manifest-divider::before, .manifest-divider::after {
+    content: '';
+    height: 1px;
+    width: 100px;
+    background: linear-gradient(to right, transparent, #8b4513, transparent);
+    margin: 0 15px;
+}
+
+.manifest-title {
+    font-family: 'Pirata One', cursive;
+    font-size: 3rem;
+    margin: 25px 0;
+    color: #1a150f;
+    text-transform: uppercase;
+}
+
+.manifest-text {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.manifest-text.italic {
+    font-style: italic;
+    color: #5d4037;
+    font-size: 1.1rem;
+}
+
+/* Большая буквица (Drop Cap) */
+.first-letter {
+    float: left;
+    font-family: 'Pirata One', cursive;
+    font-size: 4.5rem;
+    line-height: 1;
+    margin-right: 10px;
+    color: #8b0000; /* Кроваво-красный акцент */
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* Подпись */
+.manifest-signature {
+    margin-top: 40px;
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+    padding-top: 20px;
+}
+
+.captain-name {
+    font-family: 'Pirata One', cursive;
+    font-size: 1.5rem;
+    display: block;
+    margin-top: 5px;
+    color: #8b4513;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .pirate-manifest-paper {
+        padding: 40px 20px;
+    }
+
+    .manifest-title {
+        font-size: 2rem;
+    }
+
+    .manifest-text {
+        font-size: 1.1rem;
+    }
+}
+
+
+/*content page*/
+
+/* Заголовок H1 */
+.pirate-h1 {
+    font-family: 'Pirata One', cursive;
+    font-size: 4rem;
+    color: var(--p-gold);
+    text-align: center;
+    text-shadow: 3px 3px 0px #000, 0 0 20px rgba(255, 207, 64, 0.4);
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+/* Блоки с текстом (Верхний и Нижний) */
+.text-scroll-box {
+    background: var(--p-paper) url('https://www.transparenttextures.com/patterns/p6.png');
+    color: #2b1d0e;
+    padding: 40px;
+    border: 15px solid transparent;
+    border-image: url('https://www.transparenttextures.com/patterns/dark-leather.png') 30 round;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.text-scroll-box h2 {
+    font-family: 'Pirata One', cursive;
+    color: var(--p-blood);
+}
+
+.text-scroll-box p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+/* ГАЛЕРЕЯ */
+.gallery-container {
+    margin-bottom: 60px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 5px solid var(--p-wood);
+    border-radius: 8px;
+    transition: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.5s;
+    filter: sepia(30%);
+}
+
+.gallery-item:hover {
+    border-color: var(--p-gold);
+    transform: scale(1.02);
+    box-shadow: 0 0 30px var(--p-gold);
+}
+
+.gallery-item:hover img {
+    filter: sepia(0%);
+    transform: scale(1.1);
+}
+
+/* Иконка лупы при наведении */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: var(--p-gold);
+    font-size: 3rem;
+}
+
+/* Дата публикации */
+.publish-date {
+    text-align: right;
+    font-family: 'Pirata One', cursive;
+    color: var(--p-gold);
+    font-size: 1.4rem;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 207, 64, 0.3);
+    display: inline-block;
+    float: right;
+}
+
+/* Кастомный стиль для Lightbox (через CSS переменные библиотеки) */
+:root {
+    --fslightbox-slide-number-color: var(--p-gold);
+    --fslightbox-nav-btn-color: var(--p-gold);
+}
+
+@media (max-width: 768px) {
+    .pirate-h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Подпись под фото на странице */
+.gallery-caption {
+    background: #2b1d0e;
+    color: var(--p-gold);
+    font-family: 'Pirata One', cursive;
+    text-align: center;
+    padding: 8px 5px;
+    font-size: 1.2rem;
+    border-top: 2px solid var(--p-gold);
+    letter-spacing: 1px;
+}
+
+/* Настройка отображения подписи ВНУТРИ просмотрщика (fslightbox) */
+.fslightbox-caption {
+    background: rgba(26, 21, 15, 0.9) !important;
+    color: var(--p-gold) !important;
+    font-family: 'Philosopher', sans-serif !important;
+    font-size: 1.1rem !important;
+    padding: 15px !important;
+    border-top: 2px solid var(--p-gold);
+    text-align: center;
+}
+
+/* Кастомная подпись в лайтбоксе */
+.pswp__custom-caption {
+    background: rgba(26, 21, 15, 0.8);
+    color: #ffcf40;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 1.2rem;
+    padding: 15px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    border-top: 1px solid #ffcf40;
+}
+
+/* Стили кнопок PhotoSwipe */
+.pswp__button {
+    color: #ffcf40 !important;
+}
+
+/* Наша плитка на странице */
+.gallery-item {
+    border: 3px solid #1a150f;
+    transition: 0.3s;
+    background: #1a150f;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    filter: sepia(40%);
+}
+
+.gallery-item:hover {
+    border-color: #ffcf40;
+    box-shadow: 0 0 20px rgba(255, 207, 64, 0.4);
+}
+
+/* --- НОВАЯ КОМПОНОВКА PHOTOSWIPE --- */
+/* --- ФИКСАЦИЯ СЧЕТЧИКА И ИНТЕРФЕЙСА --- */
+
+/* 1. Счетчик (1 / 6) — Выводим на передний план */
+.pswp__counter {
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    height: auto !important;
+    width: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #ffcf40 !important; /* Наше золото */
+    font-family: 'Pirata One', cursive !important;
+    font-size: 1.8rem !important; /* Сделаем крупнее */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    z-index: 99999 !important; /* Максимальный приоритет */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. Подвал (Бар) с подписью */
+.pswp__custom-caption-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 70px; /* Позволим немного растягиваться если текст длинный */
+    background: rgba(10, 8, 5, 0.9);
+    border-top: 2px solid #ffcf40;
+    z-index: 5000; /* Ниже счетчика, но выше фото */
+    display: none;
+}
+
+/* 3. Текст подписи */
+.pswp__pirate-caption-text {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 1.1rem;
+    color: #ffcf40;
+    text-align: center;
+    padding: 15px 60px; /* Отступы по бокам, чтобы не лезло на кнопки */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 4. Смещение самого фото */
+.pswp__img {
+    /* Резервируем место под нижний бар, чтобы фото не перекрывалось */
+    padding-bottom: 80px !important;
+    box-sizing: border-box !important;
+    padding-top: 80px !important;
+}
+
+/* 5. Кнопки управления (Закрыть, Зум) */
+.pswp__button {
+    background: none !important;
+    color: #ffcf40 !important;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.pswp__button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+/*Крошки*/
+/* --- ЛЕВОСТОРОННИЕ ПИРАТСКИЕ КРОШКИ --- */
+.pirate-breadcrumb-nav {
+    margin: 20px 0 10px 0;
+    padding-left: 5px; /* Небольшой отступ от края */
+}
+
+.pirate-breadcrumb-nav .breadcrumb {
+    background: transparent;
+    justify-content: flex-start !important; /* Прижимаем влево */
+}
+
+.pirate-breadcrumb-nav .breadcrumb-item {
+    font-family: 'Philosopher', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+/* Убираем стандартный Bootstrap "/" */
+.breadcrumb-item + .breadcrumb-item::before {
+    content: none !important;
+}
+
+/* Наш кастомный разделитель-стрелочка */
+.breadcrumb-item + .breadcrumb-item::after {
+    content: "\f105"; /* Код иконки 'chevron-right' */
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900;
+    color: var(--p-gold);
+    margin: 0 12px;
+    font-size: 0.8rem;
+    order: -1; /* Ставим ПЕРЕД текстом элемента */
+}
+
+.pirate-breadcrumb-nav .breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.pirate-breadcrumb-nav .breadcrumb-item a:hover {
+    color: var(--p-gold);
+}
+
+.pirate-breadcrumb-nav .breadcrumb-item.active {
+    color: var(--p-gold);
+    font-weight: bold;
+}
+
+
+/*Contatcs*/
+
+/* КАРТОЧКИ КОНТАКТОВ */
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 207, 64, 0.2);
+    padding: 30px;
+    height: 100%;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card:hover {
+    border-color: var(--p-gold);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--p-gold);
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    font-family: 'Pirata One', cursive;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.contact-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--p-gold);
+}
+
+/* БЛОК С КАРТОЙ */
+.map-wrapper {
+    margin-top: 60px;
+    position: relative;
+    border: 10px solid #1a150f; /* "Деревянная" рама */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+#contactMap {
+    width: 100%;
+    height: 450px;
+    filter: grayscale(0.3) sepia(0.2); /* Стилизация карты под старину */
+}
+
+/* СОЦИАЛЬНЫЕ СЕТИ */
+.social-shout {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--p-gold);
+    color: #000;
+    border-radius: 50%;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #fff;
+    transform: rotate(360deg) scale(1.1);
+    color: #000;
+}
+
+.text-muted {
+    color: var(--pirate-gold) !important;
+}
+
+
+/*Gallery*/
+
+/* --- ОБЩИЙ СТИЛЬ ГАЛЕРЕИ --- */
+.header-divider {
+    width: 80px;
+    height: 4px;
+    background: #ffcf40;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(255, 207, 64, 0.5);
+}
+
+/* КАРТОЧКА АЛЬБОМА */
+.album-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 207, 64, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* ОБЕРТКА ИЗОБРАЖЕНИЯ */
+.album-image-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.album-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.album-card:hover .album-img {
+    transform: scale(1.1);
+}
+
+/* ОВЕРЛЕЙ ПРИ НАВЕДЕНИИ */
+.album-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+    backdrop-filter: blur(3px);
+}
+
+.album-card:hover .album-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    color: #fff;
+    background: #ffcf40;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* КОНТЕНТ КАРТОЧКИ */
+.album-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-meta {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.album-title a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.album-title a:hover {
+    color: #ffcf40;
+}
+
+.album-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.btn-read-more {
+    color: #ffcf40;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.btn-read-more:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+/* --- СТИЛЬ ПУСТОГО СОСТОЯНИЯ --- */
+.empty-gallery-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px dashed rgba(255, 207, 64, 0.1);
+    border-radius: 20px;
+    padding: 60px 20px;
+}
+
+.empty-icon-wrapper {
+    font-size: 4rem;
+    color: rgba(255, 207, 64, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.empty-gallery-box h3 {
+    font-family: 'Philosopher', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Плавное покачивание иконки, как на волнах */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+/*Gallery*/
+
+/* --- КАРТОЧКА АЛЬБОМА (NEW STYLE) --- */
+.album-card-wrapper {
+    perspective: 1000px;
+}
+
+.album-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    text-decoration: none !important;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.album-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 207, 64, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 207, 64, 0.1);
+}
+
+/* Изображение */
+.album-image-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.album-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.album-card:hover .album-img {
+    transform: scale(1.1);
+}
+
+/* Оверлей при наведении */
+.album-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.album-card:hover .album-hover-overlay {
+    opacity: 1;
+}
+
+.btn-view-album {
+    width: 50px;
+    height: 50px;
+    background: #ffcf40;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px rgba(255, 207, 64, 0.5);
+}
+
+/* Бейдж с датой */
+.album-date-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 207, 64, 0.3);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    z-index: 2;
+}
+
+.album-date-badge .day {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffcf40;
+}
+
+.album-date-badge .month {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* Контентная часть */
+.album-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+}
+
+.album-title {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.album-card:hover .album-title {
+    color: #ffcf40;
+}
+
+.album-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Футер карточки */
+.album-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
+}
+
+.photo-stats {
+    font-size: 0.8rem;
+    color: rgba(255, 207, 64, 0.7);
+    font-weight: 600;
+}
+
+.btn-album-link {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.album-card:hover .btn-album-link {
+    color: #ffcf40;
+    transform: translateX(5px);
+}
+
+
+/*Видео*/
+
+/* Стили для секции видео */
+.content-video-section {
+    background: radial-gradient(circle, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+.video-container {
+    background: #2a2a2a;
+    border: 3px solid #8b4513; /* Цвет темного дерева */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2); /* Золотистое свечение */
+}
+
+/* Верхняя плашка с названием */
+.video-title-bar {
+    background: #3d2b1f; /* Цвет старого дерева */
+    padding: 10px 20px;
+    border-bottom: 2px solid #8b4513;
+    display: flex;
+    align-items: center;
+}
+
+/* Рамка самого плеера */
+.pirate-video-frame {
+    border: 5px solid #000;
+}
+
+/* Кастомный разделитель */
+.divider-gold {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin-top: 10px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .video-title-bar span {
+        font-size: 0.9rem;
+    }
+}
+
+
+/*Скрытие текста*/
+
+.scroll-box-collapse {
+    position: relative;
+    max-height: 500px; /* Порог срабатывания */
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+/* Когда блок развернут */
+.scroll-box-collapse.expanded {
+    max-height: 10000px; /* С запасом для любого текста */
+}
+
+/* Градиент затухания */
+.scroll-box-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.9)); /* Подбери под фон блока */
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.scroll-box-collapse.expanded .scroll-box-fade {
+    opacity: 0;
+}
+
+/* Анимация иконки */
+#scrollBoxToggleBtn i {
+    transition: transform 0.3s;
+}
+
+.rotate-icon {
+    transform: rotate(180deg);
+}

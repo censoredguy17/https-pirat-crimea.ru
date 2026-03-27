@@ -1,0 +1,738 @@
+@import "./common.css";
+
+
+/* --- СТИЛИ АДМИН-ПАНЕЛИ --- */
+
+.admin-content-card {
+    background: #1e1e1e; /* Темный фон карточки */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.admin-content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    border-color: rgba(255, 207, 64, 0.3);
+}
+
+/* Обертка картинки */
+.card-image-wrapper {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.admin-content-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Бейдж с датой поверх фото */
+.card-date-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    color: #ffcf40;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(255, 207, 64, 0.2);
+}
+
+/* Тело карточки */
+.admin-content-card .card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+}
+
+.admin-content-card .card-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.admin-content-card .card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #aaa !important;
+}
+
+/* Панель кнопок */
+.card-actions {
+    padding: 1rem 1.25rem;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-admin-edit {
+    flex-grow: 1;
+    background: #ffcf40;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+
+.btn-admin-edit:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn-admin-view {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.btn-admin-view:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffcf40;
+}
+
+/* Пустое состояние */
+.admin-empty-state i {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+/*Sliders*/
+
+/* --- СТИЛИ УПРАВЛЕНИЯ СЛАЙДЕРАМИ --- */
+
+.admin-slider-card {
+    background: #252525;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 207, 64, 0.1);
+    overflow: hidden;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-slider-card:hover {
+    border-color: #ffcf40;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.slider-preview-wrapper {
+    position: relative;
+    height: 200px;
+    background: #000;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.admin-slider-card:hover .slider-img {
+    opacity: 1;
+}
+
+/* ID слайда в углу */
+.slider-id-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaa;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-family: monospace;
+}
+
+/* Скрытая кнопка при наведении */
+.slider-overlay-action {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: 0.3s;
+}
+
+.admin-slider-card:hover .slider-overlay-action {
+    opacity: 1;
+}
+
+.btn-glass {
+    width: 50px; height: 50px;
+    background: rgba(255, 207, 64, 0.9);
+    color: #000;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1.2rem;
+}
+
+/* Текст и заголовок */
+.slider-admin-title {
+    color: #ffcf40;
+    font-family: 'Philosopher', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+.admin-note {
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #999;
+    border-left: 3px solid #ffcf40;
+    margin-top: 10px;
+}
+
+/* Футер карточки */
+.slider-footer {
+    margin-top: auto;
+    padding: 12px;
+}
+
+.btn-manage-slide {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-manage-slide:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #fff;
+    color: #ffcf40;
+}
+
+/* Пустое состояние для слайдеров */
+.empty-icon-circle {
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    font-size: 2.5rem; color: #444;
+}
+
+
+
+/*Левая менюшка*/
+
+/* --- ГЛАВНЫЙ КОНТЕЙНЕР МЕНЮ --- */
+.admin-sidebar {
+    width: 280px;
+    height: 100vh; /* Во всю высоту экрана */
+    position: fixed; /* Закрепляем слева */
+    top: 0;
+    left: 0;
+    background: #0f1114; /* Глубокий темный */
+    border-right: 1px solid rgba(255, 207, 64, 0.1);
+    z-index: 1000;
+    overflow: hidden; /* Чтобы скроллился только внутренний список */
+}
+
+.pirate-sidebar-title {
+    font-family: 'Philosopher', sans-serif;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.sidebar-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 1rem -1rem;
+}
+
+/* Названия секций */
+.nav-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    padding-left: 1rem;
+}
+
+/* СТИЛИ ССЫЛОК */
+.admin-sidebar .nav-link {
+    color: #aaa;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.admin-sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Состояние Active (Золото) */
+.admin-sidebar .nav-link.active {
+    background: rgba(255, 207, 64, 0.15) !important;
+    color: #ffcf40 !important;
+    box-shadow: inset 4px 0 0 #ffcf40; /* Золотая полоска слева */
+}
+
+/* Состояние Hover */
+.admin-sidebar .nav-link:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* КРУТОЙ СКРОЛЛБАР */
+.custom-scrollbar {
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-right: -10px; /* Скрываем дефолтный скролл */
+    padding-right: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 207, 64, 0.1);
+    border-radius: 10px;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 207, 64, 0.3);
+}
+
+/* Настройка основного контента сайта (чтобы не уходил под меню) */
+body {
+    padding-left: 280px; /* Равно ширине меню */
+}
+
+@media (max-width: 992px) {
+    .admin-sidebar { width: 80px; padding: 15px 10px; }
+    .admin-sidebar span, .nav-label, .pirate-sidebar-title, .nav-link span { display: none; }
+    body { padding-left: 80px; }
+    .nav-link { justify-content: center; padding: 15px 0; }
+    .nav-link i { margin: 0 !important; font-size: 1.2rem; }
+}
+
+.sidebar-footer a{
+    color: #ffcf40 !important;
+}
+
+
+/* --- ПАНЕЛЬ ДЕЙСТВИЙ (Action Bar) --- */
+.admin-action-bar {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 207, 64, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.letter-spacing-1 {
+    letter-spacing: 1px;
+}
+
+/* КНОПКА ДОБАВЛЕНИЯ */
+.btn-pirate-add {
+    display: inline-flex;
+    align-items: center;
+    background: #ffcf40; /* Фирменное золото */
+    color: #000 !important;
+    text-decoration: none !important;
+    padding: 5px 20px 5px 5px; /* Слева меньше места из-за иконки */
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(255, 207, 64, 0.2);
+}
+
+/* Квадрат с иконкой внутри кнопки */
+.btn-pirate-add .icon-box {
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-right: 12px;
+    transition: 0.3s;
+}
+
+.btn-pirate-add:hover {
+    transform: scale(1.05);
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(255, 207, 64, 0.4);
+}
+
+.btn-pirate-add:hover .icon-box {
+    background: #000;
+    color: #ffcf40;
+}
+
+.btn-pirate-add:active {
+    transform: scale(0.95);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 576px) {
+    .admin-action-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .btn-pirate-add {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+/*Content*/
+
+/* --- СТИЛИ РЕДАКТОРА --- */
+.editor-header-sticky {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 17, 20, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    margin: -24px -24px 20px -24px;
+    z-index: 900;
+    border-bottom: 1px solid rgba(255, 207, 64, 0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.editor-title {
+    font-family: 'Philosopher', sans-serif;
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.editor-card {
+    background: #1e1e1e!important;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* КНОПКИ */
+.btn-admin-save {
+    background: #ffcf40;
+    color: #000;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-admin-save:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 207, 64, 0.3);
+}
+
+.btn-admin-danger {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-admin-danger:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+/* ПОЛЯ ВВОДА */
+.admin-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.admin-input:focus {
+    outline: none;
+    border-color: #ffcf40;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* КАСТОМНЫЙ ПЕРЕКЛЮЧАТЕЛЬ */
+.custom-switch .form-check-input {
+    width: 3em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+.custom-switch .form-check-input:checked {
+    background-color: #ffcf40;
+    border-color: #ffcf40;
+}
+
+/* --- СТИЛИ БОКОВОЙ ИНФО-ПАНЕЛИ --- */
+.info-sidebar-card {
+    background: rgba(0, 0, 0, 0.2) !important; /* Чуть темнее основной карточки для контраста */
+    border: 1px solid rgba(255, 207, 64, 0.1) !important;
+}
+
+.admin-meta-list li {
+    display: flex;
+    flex-direction: column; /* Текст в две строки: метка сверху, дата снизу */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 8px;
+}
+
+.admin-meta-list li:last-child {
+    border-bottom: none;
+}
+
+/* Метка (Создан/Изменен) */
+.meta-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4) !important; /* Тусклый белый, а не серый */
+    margin-bottom: 2px;
+}
+
+/* Сама дата */
+.meta-value {
+    font-size: 0.9rem;
+    color: #ffffff !important; /* ЧИСТО БЕЛЫЙ для читаемости */
+    font-family: monospace; /* Моноширинный шрифт для дат смотрится профессионально */
+}
+
+/* Если h5 все еще плохо видно */
+.card-subtitle {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffcf40;
+}
+
+/* --- КНОПКА НАЗАД (КРУГЛАЯ) --- */
+.btn-back-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #fff !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-back-circle i {
+    font-size: 1.1rem;
+    /* Сдвигаем иконку чуть левее визуально для идеальной центровки в круге */
+    margin-right: 2px;
+}
+
+.btn-back-circle:hover {
+    background: rgba(255, 207, 64, 0.15); /* Прозрачно-золотой фон */
+    border-color: #ffcf40; /* Золотая рамка */
+    color: #ffcf40 !important;
+    transform: translateX(-5px); /* Кнопка "отпрыгивает" влево, намекая на возврат */
+    box-shadow: 0 0 15px rgba(255, 207, 64, 0.3);
+}
+
+/* Дополнительная настройка заголовка */
+.header-info .title-box {
+    line-height: 1.1;
+}
+
+.letter-spacing-1 {
+    letter-spacing: 1px;
+}
+
+/* --- ПАНЕЛЬ ДЕЙСТВИЙ СЛАЙДЕРА --- */
+.admin-action-bar {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 207, 64, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+.admin-action-bar:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 207, 64, 0.4);
+}
+
+.action-icon-wrapper {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 207, 64, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Кнопка (уже знакомый нам стиль) */
+.btn-pirate-add {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffcf40 !important;
+    color: #000 !important;
+    text-decoration: none !important;
+    padding: 6px 20px 6px 6px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(255, 207, 64, 0.3);
+}
+
+.btn-pirate-add .icon-box {
+    width: 34px;
+    height: 34px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    margin-right: 12px;
+}
+
+.btn-pirate-add:hover {
+    transform: scale(1.05) translateY(-2px);
+    background-color: #fff !important;
+    box-shadow: 0 8px 25px rgba(255, 207, 64, 0.4);
+}
+
+/* Мелкие правки текста */
+.letter-spacing-1 {
+    letter-spacing: 1px;
+}
+
+
+/* Дополнительно к вашим стилям */
+
+.input-group-text {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.text-info {
+    color: #0dcaf0 !important; /* Голубой акцент для SEO блоков */
+}
+
+/* Стилизация CKEditor в темной теме (если нужно) */
+.cke_inner {
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+/* Подсветка ошибок */
+.admin-error {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* --- КАСTOMНЫЙ SLUG INPUT --- */
+.slug-wrapper-custom {
+    background: rgba(0, 0, 0, 0.2); /* Тот же фон, что у остальных инпутов */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Чтобы скругления обрезали внутренние элементы */
+    transition: 0.3s;
+}
+
+/* Префикс со слэшем */
+.slug-prefix {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 207, 64, 0.5); /* Золотистый приглушенный слэш */
+    padding: 0 15px;
+    height: 45px; /* Фиксированная высота для выравнивания */
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* Поле ввода внутри обертки */
+.slug-input-field {
+    border: none !important; /* Убираем рамку самого инпута, она теперь на обертке */
+    background: transparent !important;
+    height: 45px;
+    padding-left: 12px !important;
+    color: rgba(255, 255, 255, 0.4) !important; /* Делаем текст тусклым, так как поле disabled */
+    cursor: not-allowed;
+    flex-grow: 1;
+}
+
+/* Эффект фокуса на всей обертке, если бы поле было активным */
+.slug-wrapper-custom:focus-within {
+    border-color: rgba(255, 207, 64, 0.4);
+    box-shadow: 0 0 10px rgba(255, 207, 64, 0.1);
+}
+
+/* Дополнительно: стиль для иконки магии в подсказке */
+.fa-magic {
+    opacity: 0.6;
+}
