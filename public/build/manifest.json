@@ -20,7 +20,7 @@
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
   },
   "resources/css/admin.css": {
-    "file": "assets/admin-1qVqox8J.css",
+    "file": "assets/admin-cl_PH3nu.css",
     "src": "resources/css/admin.css",
     "isEntry": true,
     "name": "admin",
@@ -29,7 +29,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-CL4NQpQP.css",
+    "file": "assets/app-3Pp14X5X.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -38,7 +38,7 @@
     ]
   },
   "resources/js/admin.js": {
-    "file": "assets/admin-cKeCi3LN.js",
+    "file": "assets/admin-DH9nN0mE.js",
     "name": "admin",
     "src": "resources/js/admin.js",
     "isEntry": true,
@@ -47,7 +47,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-LqjQ-Kfq.js",
+    "file": "assets/app-D06IgYOu.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -55,7 +55,7 @@
       "_common-MEZDT1ia.js"
     ],
     "css": [
-      "assets/app-DZU1WGtr.css"
+      "assets/app-BDvLvhPg.css"
     ]
   }
 }

@@ -15,7 +15,8 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-build-classic": "^39.0.2",
+        "@ckeditor/ckeditor5-build-classic": "^28.0.0",
+        "@fancyapps/ui": "^6.1.13",
         "@fortawesome/fontawesome-free": "^7.2.0",
         "bootstrap": "^5.3.8",
         "photoswipe": "^5.4.4",

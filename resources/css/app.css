@@ -933,6 +933,8 @@ html, body {
     transform: scale(1.1);
 }
 
+
+
 /* Иконка лупы при наведении */
 .gallery-overlay {
     position: absolute;

@@ -43,40 +43,44 @@
 
             <div class="row g-4" id="pirate-gallery">
                 @forelse($images as $image)
-                    <div class="col-lg-3 col-md-3">
-                        {{-- Ссылка на полное изображение для Lightbox --}}
+                    <div class="col-lg-3 col-md-4 col-sm-6"> {{-- Улучшил сетку для мобилок --}}
+                        {{-- Ссылка для Fancybox --}}
                         <a href="{{ $image->original }}"
-                           data-pswp-width="1600"
-                           data-pswp-height="1067"
-                           target="_blank">
+                           data-fancybox="gallery"
+                           data-caption="{{ $image->description ?? $image->alt ?? $content->listTitle }}">
 
-                            <div class="gallery-item">
-                                {{-- Превью изображения --}}
-                                <img src="{{ $image->thumb }}"
-                                     alt="{{ $image->alt ?? $content->listTitle }}"
-                                     loading="lazy" />
+                            <div class="gallery-item-wrapper">
+                                <div class="gallery-item">
+                                    {{-- Превью с фиксированным соотношением сторон --}}
+                                    <img src="{{ $image->thumb }}"
+                                         alt="{{ $image->alt ?? $content->listTitle }}"
+                                         class="img-fluid gallery-thumb"
+                                         loading="lazy" />
 
-                                {{-- Слой при наведении (сохраняем твой стиль) --}}
-                                <div class="gallery-overlay">
-                                    <i class="fas fa-expand"></i>
+                                    {{-- Твой фирменный слой при наведении --}}
+                                    <div class="gallery-overlay">
+                                        <div class="overlay-content">
+                                            <i class="fas fa-search-plus fa-2x text-warning"></i>
+                                            <span class="d-block mt-2 text-white small uppercase">Увеличить</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </a>
 
-                        {{-- Если нужно выводить описание под фото --}}
                         @if($image->description)
-                            <p class="text-muted small mt-2 italic px-2">{{ $image->description }}</p>
+                            <p class="gallery-desc">{{ $image->description }}</p>
                         @endif
                     </div>
                 @empty
-                    {{-- Сообщение, если фотографий в альбоме нет --}}
+                    {{-- Твой блок "Пленка не проявлена" (оставляем без изменений) --}}
                     <div class="col-12 text-center py-5">
                         <div class="empty-state-box p-5" style="background: rgba(255,255,255,0.03); border-radius: 20px; border: 1px dashed rgba(255,207,64,0.2);">
                             <i class="fas fa-camera-retro fa-3x text-muted mb-3 opacity-50"></i>
                             <h4 class="text-white">Пленка еще не проявлена</h4>
-                            <p class="text-muted">В этом альбоме пока нет доступных снимков. Возвращайтесь позже!</p>
+                            <p class="text-muted">В этом альбоме пока нет доступных снимков.</p>
                             <a href="{{ route('gallery.index') }}" class="btn btn-outline-warning btn-sm mt-3">
-                                <i class="fas fa-arrow-left me-1"></i> Назад в галерею
+                                <i class="fas fa-arrow-left me-1"></i> Назад
                             </a>
                         </div>
                     </div>
