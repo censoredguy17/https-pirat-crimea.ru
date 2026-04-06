@@ -43,7 +43,7 @@
 
             <div class="row g-4" id="pirate-gallery">
                 @forelse($images as $image)
-                    <div class="col-lg-3 col-md-4 col-sm-6"> {{-- Улучшил сетку для мобилок --}}
+                    <div class="col-lg-3 col-md-4 col-6"> {{-- Улучшил сетку для мобилок --}}
                         {{-- Ссылка для Fancybox --}}
                         <a href="{{ $image->original }}"
                            data-fancybox="gallery"
