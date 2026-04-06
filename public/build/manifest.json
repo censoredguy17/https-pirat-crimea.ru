@@ -29,12 +29,21 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-CBfrfNg9.css",
+    "file": "assets/app-dlsr6w5d.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
     "names": [
       "app.css"
+    ]
+  },
+  "resources/css/app_mobile.css": {
+    "file": "assets/app_mobile-C4vIMe3k.css",
+    "src": "resources/css/app_mobile.css",
+    "isEntry": true,
+    "name": "app_mobile",
+    "names": [
+      "app_mobile.css"
     ]
   },
   "resources/js/admin.js": {

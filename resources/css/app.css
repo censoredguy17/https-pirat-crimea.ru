@@ -1,10 +1,12 @@
 /*import './common';*/
 @import "./common.css";
 
+
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
 
 
 :root {
@@ -933,7 +935,33 @@ html, body {
     transform: scale(1.1);
 }
 
+.section-title {
+    text-align: center;
+    font-size: 42px;
+    color: #d4af37;
+    margin-bottom: 0px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
 
+.section-title::before,
+.section-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 2px;
+    background: gold;
+}
+
+.section-title::before {
+    left: 0;
+}
+
+.section-title::after {
+    right: 0;
+}
 
 /* Иконка лупы при наведении */
 .gallery-overlay {
@@ -1664,3 +1692,46 @@ html, body {
 .rotate-icon {
     transform: rotate(180deg);
 }
+
+
+
+/* Общие стили для баннера */
+.pirate-welcome-wrapper {
+    background: #1a1d20; /* Темный фон */
+    border-radius: 8px;
+    border: 2px solid #ffc107; /* Золотая рамка */
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Декоративные элементы (якорь и компас) */
+.banner-decor {
+    font-size: 2.5rem;
+    color: rgba(255, 193, 7, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.pirate-welcome-wrapper:hover .banner-decor {
+    transform: scale(1.1) rotate(10deg);
+    color: rgba(255, 193, 7, 0.5);
+}
+
+/* Текст */
+.pirate-title {
+    color: #ffc107;
+    font-family: 'Georgia', serif;
+    font-weight: 900;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+}
+
+.pirate-subtitle {
+    color: #adb5bd;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+/* --- АДАПТИВНОСТЬ --- */

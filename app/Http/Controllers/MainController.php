@@ -26,7 +26,7 @@ class MainController extends Controller
     public function category(string $slug = null): View
     {
         $category = $this->data['category'] = CategoryModel::where('slug', $slug)->first();
-        $this->data['contents'] = ContentModel::where('category_id', $category->id)->with('mainImage')->get();
+        $this->data['contents'] = ContentModel::where('category_id', $category->id)->where('is_published', 1)->with('mainImage')->get();
 
         $this->data['breadcrumbs'] = [
             ['title' => $category->name, 'url' => '/']

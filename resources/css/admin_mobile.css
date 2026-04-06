@@ -1,0 +1,20 @@
+@media (max-width: 767px) {
+    body{
+        padding-left: 0px;
+    }
+    .offcanvas {
+        width: 280px !important; /* Ограничим ширину выезда */
+        background-color: #1a1d20; /* Темный пиратский фон */
+    }
+
+    .admin-sidebar-mobile .nav-link {
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+    }
+
+    .admin-sidebar-mobile .nav-link.active {
+        background-color: #ffc107; /* Желтый активный пункт */
+        color: #000 !important;
+    }
+}

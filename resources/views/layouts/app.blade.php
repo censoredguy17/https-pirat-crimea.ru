@@ -20,6 +20,7 @@
     <meta name="apple-mobile-web-app-title" content="Логово Пиратов" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/app_mobile.css') }}" media="screen and (max-width: 767px)">
 </head>
 <body>
     @include('layouts.header')

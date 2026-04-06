@@ -51,3 +51,25 @@
         </ul>
     </nav>
 </header>
+
+<!-- Универсальный пиратский баннер -->
+<div class="pirate-welcome-wrapper mb-4">
+    <div class="pirate-banner-content d-flex align-items-center justify-content-center">
+        <div class="banner-decor left d-none d-lg-block">
+            <i class="fas fa-anchor"></i>
+        </div>
+
+        <div class="banner-text-group text-center px-4">
+            <h2 class="pirate-title mb-0">
+                <span class="d-none d-sm-inline">🏴‍☠️</span>
+                В гостях у крымских пиратов
+                <span class="d-none d-sm-inline">🏴‍☠️</span>
+            </h2>
+            <div class="pirate-subtitle text-uppercase mt-1">Добро пожаловать на борт, капитан!</div>
+        </div>
+
+        <div class="banner-decor right d-none d-lg-block">
+            <i class="fas fa-compass"></i>
+        </div>
+    </div>
+</div>

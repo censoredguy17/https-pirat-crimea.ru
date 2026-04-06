@@ -41,12 +41,12 @@ class AdminController extends Controller
             'listTitle' => 'required|string|max:255',
             'listDescription' => 'required|string|max:255',
             'title' => 'required|string|max:255',
-            'textTop' => 'required|string',
-            'textBottom' => 'required|string',
+//            'textTop' => 'required|string',
+//            'textBottom' => 'required|string',
             'is_published' => 'nullable|boolean',
             'published_at' => 'nullable|date',
-            'metaTitle' => 'required|string|max:255',
-            'metaDescription' => 'required|string|max:255',
+//            'metaTitle' => 'required|string|max:255',
+//            'metaDescription' => 'required|string|max:255',
         ]);
 
         $validated['is_published'] = $request->has('is_published') ? true : false;
@@ -75,12 +75,12 @@ class AdminController extends Controller
             'listTitle' => 'nullable|string|max:255',
             'listDescription' => 'nullable|string|max:255',
             'title' => 'required|string|max:255',
-            'textTop' => 'nullable|string',
-            'textBottom' => 'nullable|string',
+            'textTop' => 'nullable',
+            'textBottom' => 'nullable',
             'is_published' => 'nullable|boolean',
             'published_at' => 'nullable|date',
-            'metaTitle' => 'nullable|string|max:255',
-            'metaDescription' => 'nullable|string|max:255',
+            'metaTitle' => 'nullable|max:255',
+            'metaDescription' => 'nullable|max:255',
         ]);
 
         $validated['is_published'] = $request->has('is_published') ? true : false;

@@ -10,6 +10,7 @@
     <meta name="keywords" content="@yield('metaKeywords')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/css/admin.css', 'resources/js/admin.js'])
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/admin_mobile.css') }}" media="screen and (max-width: 767px)">
 </head>
 <body>
 {{--    @include('admin.layouts.header')--}}

@@ -1,0 +1,22 @@
+@media (max-width: 767px) {
+    .gallery-item img {
+        height: 100px; /* Установи нужную тебе высоту в пикселях */
+    }
+
+    .pirate-welcome-wrapper {
+        margin: 10px; /* Отступы на мобилке */
+        padding: 15px 10px;
+        border-width: 1px;
+        border-radius: 0; /* На мобилке лучше во всю ширину без скруглений */
+    }
+
+    .pirate-title {
+        font-size: 1.1rem; /* Уменьшаем шрифт для телефона */
+        letter-spacing: 1px;
+    }
+
+    .pirate-subtitle {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+}
