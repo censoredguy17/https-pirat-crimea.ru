@@ -28,17 +28,11 @@
             </li>
 
             <li class="modern-p-item modern-p-dropdown">
-                <a href="/category/pages" class="modern-p-link">Страницы <i class="fas fa-chevron-down"></i></a>
-                <ul class="modern-p-sub">
-                    <li><a href="https://o-domik.com/" target="_blank">Сайт №1</a></li>
-                </ul>
+                <a href="/category/pages" class="modern-p-link">Страницы</a>
             </li>
 
             <li class="modern-p-item modern-p-dropdown">
-                <a href="/category/news" class="modern-p-link">Объявления <i class="fas fa-chevron-down"></i></a>
-                <ul class="modern-p-sub">
-                    <li><a href="https://o-domik.com/" target="_blank">Сайт №1</a></li>
-                </ul>
+                <a href="/category/news" class="modern-p-link">Объявления</a>
             </li>
 
             <li class="modern-p-item"><a href="/category/actions" class="modern-p-link">Акции</a></li>

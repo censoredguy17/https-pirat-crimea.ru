@@ -61,7 +61,7 @@ html, body {
     align-items: center;
     text-decoration: none;
     color: #fff;
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
 }
 
 .modern-p-logo i {
@@ -161,7 +161,7 @@ html, body {
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     font-size: 1.1rem;
     margin-left: 15px;
     transition: 0.3s;
@@ -270,7 +270,7 @@ html, body {
 }
 
 .pirate-font {
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     text-transform: uppercase;
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -452,7 +452,7 @@ html, body {
     background-color: #2b1d0e;
     color: var(--pirate-gold);
     border: 1px solid var(--pirate-gold);
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     text-transform: uppercase;
     transition: 0.3s;
 }
@@ -466,7 +466,7 @@ html, body {
 .pirate-btn-lg {
     background: linear-gradient(45deg, #b8860b, #ffd700);
     color: #000;
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     font-size: 1.5rem;
     text-transform: uppercase;
     border: 3px solid #2b1d0e;
@@ -551,7 +551,7 @@ html, body {
     color: var(--pirate-gold);
     border: 2px solid var(--pirate-gold);
     border-radius: 0;
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     letter-spacing: 1px;
     transition: 0.3s;
 }
@@ -612,7 +612,7 @@ html, body {
 .pirate-btn-bronze {
     background: linear-gradient(45deg, #4b3621, #8b5a2b);
     color: #ffd700;
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     font-size: 1.3rem;
     border: 2px solid #332414;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -803,7 +803,7 @@ html, body {
 }
 
 .manifest-title {
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     font-size: 3rem;
     margin: 25px 0;
     color: #1a150f;
@@ -826,7 +826,7 @@ html, body {
 /* Большая буквица (Drop Cap) */
 .first-letter {
     float: left;
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     font-size: 4.5rem;
     line-height: 1;
     margin-right: 10px;
@@ -842,7 +842,7 @@ html, body {
 }
 
 .captain-name {
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     font-size: 1.5rem;
     display: block;
     margin-top: 5px;
@@ -869,7 +869,7 @@ html, body {
 
 /* Заголовок H1 */
 .pirate-h1 {
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     font-size: 4rem;
     color: var(--p-gold);
     text-align: center;
@@ -892,7 +892,7 @@ html, body {
 }
 
 .text-scroll-box h2 {
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     color: var(--p-blood);
 }
 
@@ -990,7 +990,7 @@ html, body {
 /* Дата публикации */
 .publish-date {
     text-align: right;
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     color: var(--p-gold);
     font-size: 1.4rem;
     margin-top: 20px;
@@ -1015,7 +1015,7 @@ html, body {
 .gallery-caption {
     background: #2b1d0e;
     color: var(--p-gold);
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     text-align: center;
     padding: 8px 5px;
     font-size: 1.2rem;
@@ -1085,7 +1085,7 @@ html, body {
     opacity: 1 !important;
     visibility: visible !important;
     color: #ffcf40 !important; /* Наше золото */
-    font-family: 'Pirata One', cursive !important;
+    font-family: "Times New Roman", serif !important;
     font-size: 1.8rem !important; /* Сделаем крупнее */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
     z-index: 99999 !important; /* Максимальный приоритет */
@@ -1218,7 +1218,7 @@ html, body {
 }
 
 .contact-card h3 {
-    font-family: 'Pirata One', cursive;
+    font-family: "Times New Roman", serif;
     letter-spacing: 1px;
     margin-bottom: 15px;
 }
