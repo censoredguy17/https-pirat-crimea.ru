@@ -19,29 +19,40 @@
                 </ul>
             </li>
 
-            <li class="modern-p-item">
-                <a href="/category/advert" class="modern-p-link">Развлечения</a>
-            </li>
+            @if($categoriesIsset->contains(2))
+                <li class="modern-p-item">
+                    <a href="/category/advert" class="modern-p-link">Развлечения</a>
+                </li>
+            @endif
 
-            <li class="modern-p-item">
-                <a href="/category/services" class="modern-p-link">Услуги</a>
-            </li>
+            @if($categoriesIsset->contains(1))
+                <li class="modern-p-item">
+                    <a href="/category/services" class="modern-p-link">Услуги</a>
+                </li>
+            @endif
 
-            <li class="modern-p-item modern-p-dropdown">
-                <a href="/category/pages" class="modern-p-link">Страницы</a>
-            </li>
+            @if($categoriesIsset->contains(3))
+                <li class="modern-p-item modern-p-dropdown">
+                    <a href="/category/pages" class="modern-p-link">Страницы</a>
+                </li>
+            @endif
 
-            <li class="modern-p-item modern-p-dropdown">
-                <a href="/category/news" class="modern-p-link">Объявления</a>
-            </li>
+            @if($categoriesIsset->contains(4))
+                <li class="modern-p-item modern-p-dropdown">
+                    <a href="/category/news" class="modern-p-link">Объявления</a>
+                </li>
+            @endif
 
-            <li class="modern-p-item"><a href="/category/actions" class="modern-p-link">Акции</a></li>
+            @if($categoriesIsset->contains(5))
+                <li class="modern-p-item"><a href="/category/actions" class="modern-p-link">Акции</a></li>
+            @endif
+
             <li class="modern-p-item"><a href="/gallery" class="modern-p-link">Галерея</a></li>
             <li class="modern-p-item"><a href="/contacts" class="modern-p-link">Контакты</a></li>
 
-{{--            <li class="modern-p-item">--}}
-{{--                <a href="#" class="modern-p-btn">На абордаж!</a>--}}
-{{--            </li>--}}
+            {{--            <li class="modern-p-item">--}}
+            {{--                <a href="#" class="modern-p-btn">На абордаж!</a>--}}
+            {{--            </li>--}}
         </ul>
     </nav>
 </header>
